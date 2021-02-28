@@ -17,9 +17,9 @@ def encryption(plaintext, n):
 
 
 def padding(plaintext):
-    binary_str = bin(plaintext)  # convert to a bit string
-    output = binary_str + binary_str[-16:]  # pad the last 16 bits to the end
-    return int(output, 2)  # convert back to integer
+    binary_str = bin(plaintext)  
+    output = binary_str + binary_str[-16:]  
+    return int(output, 2)  
 
 
 def decryption(a, p, q):
@@ -56,8 +56,8 @@ def choose(lst):
     for i in lst:
         binary = bin(i)
 
-        append = binary[-16:]  # take the last 16 bits
-        binary = binary[:-16]  # remove the last 16 bits
+        append = binary[-16:]  
+        binary = binary[:-16]  
 
         if append == binary[-16:]:
             return i
@@ -80,13 +80,12 @@ def bytes_to_long(s):
         acc = (acc << 32) + unpack('>I', s[i:i+4])[0]
     return acc
 
-# Find SQROOT in Zp where p = 3 mod 4
+
 def sqrt_p_3_mod_4(a, p):
     r = pow(a, (p + 1) // 4, p)
     return r
 
 
-# Find SQROOT in Zp where p = 5 mod 8
 def sqrt_p_5_mod_8(a, p):
     d = pow(a, (p - 1) // 4, p)
     r = 0
